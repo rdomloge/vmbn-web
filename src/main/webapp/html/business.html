@@ -1,0 +1,96 @@
+<div ng-controller="businessController" class="w3-container w3-cell w3-mobile">
+	<div id="businessHeader" class="w3-container">
+		<h1 style="color:cadetblue">{{business.name}}</h1>
+		<h4>{{business.location}}</h4>
+	</div>
+	<div id="businessFinancials" class="w3-container w3-margin">
+		<table class="w3-table w3-bordered w3-cell">
+			<tr id="askingPrice">
+				<td class="w3-padding">Asking price</td>
+				<td class="w3-padding" style="font-weight: bold;">{{business.askingPrice | currency : "£" : 0}}</td>
+			</tr>
+			<tr id="turnover">
+				<td class="w3-padding">Turnover</td>
+				<td class="w3-padding" style="font-weight: bold;">{{business.turnover | currency : "£" : 0}}</td>
+			</tr>
+			<tr id="netProfit">
+				<td class="w3-padding">Net profit</td>
+				<td class="w3-padding" style="font-weight: bold;">{{business.netProfit | currency : "£" : 0}}</td>
+			</tr>
+		</table>
+	</div>
+	<div id="gallery" class="w3-container">
+		<img ng-repeat="image in gallery._embedded.images" 
+			class="w3-margin" 
+			src="http://localhost:8080/media/{{image.thumbnailPath}}"
+			ng-cloak
+			/>
+	</div>
+	<div id="businessDescription" class="w3-container">
+		<p ng-repeat="para in business.description">
+			{{para}}
+		</p>
+	</div>
+	<div id="propertyInformation" class="w3-container">
+		<h5>Property Information</h5>
+		<table class="w3-table w3-bordered">
+			<tr>
+				<td>Property</td>
+				<td>{{business.propertyInformation.propertyType}}</td>
+			</tr>
+			<tr>
+				<td>Location</td>
+				<td>{{business.propertyInformation.locationDescription}}</td>
+			</tr>
+		</table>
+	</div>
+	<div id="businessOperation" class="w3-container">
+		<h5>Business Operation</h5>
+		<table class="w3-table w3-bordered">
+			<tr>
+				<td>Employees</td>
+				<td>{{business.businessOperation.employeesDescription}}</td>
+			</tr>
+			<tr>
+				<td>Years established</td>
+				<td>{{business.businessOperation.yearsEstablished}}</td>
+			</tr>
+		</table>
+	</div>
+	<div id="franchiseInformation" class="w3-container">
+		<h5>Franchise Information</h5>
+		<table class="w3-table w3-bordered">
+			<tr>
+				<td>Franchise Opportunity</td>
+				<td>{{business.franchiseInformation.franchiseOpportunity}}</td>
+			</tr>
+		</table>
+	</div>
+	<div id="otherInformation" class="w3-container">
+		<h5>Other Information</h5>
+		<table class="w3-table w3-bordered">
+			<tr>
+				<td>Support & training</td>
+				<td>{{business.otherInformation.supportAndTraining}}</td>
+			</tr>
+			<tr>
+				<td>Financing available</td>
+				<td>{{business.otherInformation.financingAvailable}}</td>
+			</tr>
+			<tr>
+				<td>Website</td>
+				<td>{{business.otherInformation.website}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="w3-cell w3-mobile w3-center w3-margin">
+	<div class="w3-border">
+		<a href="#" class="w3-button w3-round-large w3-orange w3-margin w3-text-white">Contact Broker</a>
+		<div class="w3-cell-row">
+			<a href="#" class="w3-cell w3-button w3-white w3-padding w3-border">Save</a>
+			<a href="#" class="w3-cell w3-button w3-white w3-padding w3-border">Share</a>
+			<a href="#" class="w3-cell w3-button w3-white w3-padding w3-border">Print</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+    	<title>Value My Business Now</title>
+    	
+    	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    	
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    	<script src="script/vmbn-configure.js"></script>
+    	<script src="script/business.js"></script>
+    	<script src="script/list.js"></script>
+  	</head>
+	<body>
+	
+		<!-- Navbar (sit on top) -->
+		<div class="w3-top">
+		  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+		    <a href="#home" class="w3-bar-item w3-button"><b>Sell</b> My Business Now</a>
+		    <!-- Float links to the right. Hide them on small screens -->
+		    <div class="w3-right w3-hide-small">
+		      <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+		      <a href="#about" class="w3-bar-item w3-button">About</a>
+		      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- Placeholder for views -->
+		<div style="margin-top:50px" ng-view></div>
+		
+		<script>
+			myApp.config(function($routeProvider) {
+				$routeProvider
+				    .when('/business/:businessId', {
+				        templateUrl : 'html/business.html'
+				    })
+				    .otherwise({
+				        templateUrl : "html/list.html"
+				    });
+			});
+		</script>
+	</body>
+</html>
